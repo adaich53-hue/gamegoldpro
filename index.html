@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameGoldPro - Adam Guide</title>
+    <title>GameGoldPro - Adam Guide 2026</title>
     <style>
         :root {
             --primary-green: #00ff00;
             --dark-overlay: rgba(0, 0, 0, 0.85);
         }
         body {
-            /* خلفية مستوحاة من eFootball وكونامي */
+            /* خلفية احترافية مستوحاة من eFootball وكونامي */
             background: linear-gradient(var(--dark-overlay), var(--dark-overlay)), 
-                        url('https://gamingonphone.com/wp-content/uploads/2021/07/eFootball-brand-logo.jpg');
+                        url('https://images.turtlesports.com/2023/09/eFootball-2024-Season-1.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -26,37 +26,44 @@
             background-color: rgba(0, 0, 0, 0.95);
             padding: 40px 20px;
             border-bottom: 5px solid var(--primary-green);
+            box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
         }
-        .title-green { color: var(--primary-green); font-size: 45px; font-weight: 900; margin: 0; text-shadow: 0 0 15px rgba(0,255,0,0.5); }
-        .subtitle { color: #ffffff; font-size: 24px; margin: 10px 0; letter-spacing: 5px; font-weight: 300; }
+        .title-green { color: var(--primary-green); font-size: clamp(30px, 8vw, 50px); font-weight: 900; margin: 0; text-shadow: 0 0 20px rgba(0,255,0,0.5); }
+        .subtitle { color: #ffffff; font-size: 24px; margin: 10px 0; letter-spacing: 5px; text-transform: uppercase; font-weight: 300; }
         
-        .container { padding: 50px 20px; display: flex; flex-direction: column; align-items: center; min-height: 80vh; }
-        .step { display: none; background: rgba(0, 0, 0, 0.9); border-radius: 25px; padding: 40px; width: 90%; max-width: 800px; border: 1px solid #333; }
-        .active { display: block; animation: fadeIn 0.8s ease; }
+        .container { padding: 60px 20px; display: flex; flex-direction: column; align-items: center; min-height: 80vh; }
         
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .step { display: none; background: rgba(0, 0, 0, 0.9); border-radius: 30px; padding: 40px; width: 90%; max-width: 800px; border: 1px solid #333; box-shadow: 0 20px 60px rgba(0,0,0,0.9); }
+        .active { display: block; animation: fadeInUp 0.8s ease-out; }
+        
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
 
         input {
-            width: 100%; max-width: 400px; padding: 18px; margin: 25px 0; border-radius: 12px; border: 2px solid var(--primary-green);
-            background: #111; color: white; font-size: 18px; text-align: center;
+            width: 100%; max-width: 400px; padding: 18px; margin: 30px 0; border-radius: 15px; border: 2px solid var(--primary-green);
+            background: #111; color: white; font-size: 18px; text-align: center; transition: 0.3s;
         }
+        input:focus { box-shadow: 0 0 15px var(--primary-green); outline: none; }
+
         .btn-main {
-            background: var(--primary-green); color: black; padding: 18px 45px; border: none; border-radius: 12px;
-            font-weight: bold; font-size: 20px; cursor: pointer; transition: 0.4s; width: 100%; max-width: 400px;
+            background: var(--primary-green); color: black; padding: 20px 50px; border: none; border-radius: 15px;
+            font-weight: bold; font-size: 22px; cursor: pointer; transition: 0.4s; width: 100%; max-width: 400px;
         }
-        .btn-main:hover { background: #05cc05; transform: scale(1.02); }
-        .skip-link { display: block; margin-top: 25px; color: #aaa; text-decoration: none; cursor: pointer; font-size: 18px; }
+        .btn-main:hover { background: #05cc05; transform: scale(1.05); }
+
+        .skip-link { display: block; margin-top: 30px; color: #aaa; text-decoration: none; cursor: pointer; font-size: 18px; }
+        .skip-link:hover { color: var(--primary-green); }
 
         .social-links a {
-            display: block; background: #1877f2; color: white; padding: 20px; margin: 15px 0;
-            text-decoration: none; border-radius: 12px; font-weight: bold; font-size: 18px;
+            display: block; background: #1877f2; color: white; padding: 22px; margin: 20px 0;
+            text-decoration: none; border-radius: 15px; font-weight: bold; font-size: 20px; transition: 0.3s;
         }
         .social-links a.insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .social-links a:hover { opacity: 0.9; transform: translateY(-5px); }
 
         .tips-list { text-align: right; margin-top: 30px; }
-        .tip-card { background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 15px; margin-bottom: 35px; border-right: 5px solid var(--primary-green); }
-        .tip-card h3 { color: var(--primary-green); font-size: 24px; margin-bottom: 15px; }
-        .tip-card p { font-size: 18px; line-height: 1.8; color: #ddd; }
+        .tip-card { background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 20px; margin-bottom: 40px; border-right: 6px solid var(--primary-green); }
+        .tip-card h3 { color: var(--primary-green); font-size: 26px; margin-top: 0; }
+        .tip-card p { font-size: 19px; line-height: 1.9; color: #ddd; }
     </style>
 </head>
 <body>
@@ -68,28 +75,76 @@
 
     <div class="container">
         <div id="step1" class="step active">
-            <h2>مرحباً بك في عالم الاحتراف</h2>
-            <p>أدخل اسمك المستعار في اللعبة للبدء:</p>
-            <input type="text" id="userName" placeholder="اكتب اسمك هنا adam">
+            <h2>مرحباً بك في أكاديمية ADAM الاحترافية</h2>
+            <p>قبل الكشف عن أسرار eFootball 2026، ما هو اسمك أيها البطل؟</p>
+            <input type="text" id="nameInput" placeholder="اكتب اسمك هنا...">
             <br>
-            <button class="btn-main" onclick="nextStep(2)">متابعة</button>
-            <a class="skip-link" onclick="nextStep(2)">تخطى هذه الخطوة >></a>
+            <button class="btn-main" onclick="goToStep(2)">استمرار للمرحلة التالية</button>
+            <a class="skip-link" onclick="goToStep(2)">تخطى هذه الخطوة مؤقتاً >></a>
         </div>
 
         <div id="step2" class="step">
-            <h2>خطوة واحدة تفصلك عن الأسرار!</h2>
-            <p>يرجى متابعة حساباتنا الرسمية لفتح دليل الاحتراف الشامل:</p>
+            <h2>خطوة واحدة تفصلك عن الاحتراف!</h2>
+            <p>لفتح قسم النصائح الذهبية، يرجى متابعة حساباتنا الرسمية لدعم المحتوى:</p>
             <div class="social-links">
                 <a href="https://www.facebook.com/profile.php?id=61555217300879 target="_blank">متابعة عبر فيسبوك</a>
-                <a href="https://www.instagram.com/adampirlo___59?igsh=MXUxN2Z5YWF2bzN5eA== class="insta" target="_blank">متابعة عبر إنستغرام</a>
+                <a href="https://www.instagram.com/adampirlo___59?igsh=MXUxN2Z5YWF2bzN5eA==" class="insta" target="_blank">متابعة عبر إنستغرام</a>
             </div>
-            <button class="btn-main" onclick="nextStep(3)">تمت المتابعة، أرني النصائح!</button>
+            <button class="btn-main" onclick="goToStep(3)">تمت المتابعة بنجاح ✅</button>
         </div>
 
         <div id="step3" class="step">
-            <h2 style="color: var(--primary-green);">دليل احتراف eFootball 2026 الشامل</h2>
+            <h2 style="color: var(--primary-green); border-bottom: 2px solid #333; padding-bottom: 20px;">دليل احتراف eFootball 2026 الشامل</h2>
             
             <div class="tips-list">
+                
                 <div class="tip-card">
-                    <h3>1. الهندسة الدفاعية والتحكم المطلق في التمركز</h3>
-                    <p>يعتبر الدفاع هو الركيزة الأساسية لأي لاعب يطمح لبلوغ التصنيفات العليا في eFootball 2026. لا يعتمد الدفاع الاحترافي على الضغط المستمر، بل على فهم "زوايا التمرير" وإغلاق المساحات أمام المهاجمين. يجب عليك استخدام خاصية Match-up بذكاء شديد؛ فهي تتيح لمدافعك مراقبة الكرة عن كث
+                    <h3>1. هندسة الدفاع التكتيكي: فن التمركز والتحكم المطلق في المساحات</h3>
+                    <p>يعتبر الدفاع في eFootball 2026 هو الركيزة الأساسية التي يُبنى عليها النصر، فهو لا يعتمد فقط على القوة البدنية للمدافعين، بل يتطلب ذكاءً حاداً في قراءة تحركات الخصم قبل حدوثها. الاحتراف الحقيقي يبدأ بضبط إعدادات الدفاع التكتيكي والابتعاد عن الضغط العشوائي الذي يخلق فجوات قاتلة في الخط الخلفي. يجب عليك إتقان خاصية Match-up التي تجعل المدافع في حالة تأهب قصوى لقطع مسارات التمرير البينية، مع ضرورة الحفاظ على المسافة المثالية بين المدافع والمهاجم لمنع الانطلاقات السريعة. تذكر دائماً أن الدفاع هو لعبة صبر، فمن يندفع أولاً هو من يخسر التمركز، والمدرب الناجح هو من يجعل فريقه كتلة واحدة يصعب اختراقها.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>2. سيمفونية بناء الهجمة والتحكم في إيقاع المباراة (Tempo Control)</h3>
+                    <p>بناء الهجمة يتطلب هدوءاً كبيراً وقدرة على نقل الكرة بسلاسة بين الخطوط الثلاثة. لا تكتفِ بالاعتماد على الركض السريع، بل تعلم كيف تُبرد إيقاع اللعب من خلال التمريرات القصيرة في وسط الميدان لسحب لاعبي الخصم وإخراجهم من مناطقهم الدفاعية. استخدام التمريرات المذهلة (Stunning Pass) في الوقت المناسب، وتحويل اللعب من جهة إلى أخرى عبر الأجنحة، يشتت انتباه الدفاع ويخلق ثغرات يمكن استغلالها بلمسة واحدة. التنوع في أساليب الهجوم، ما بين الكرات العرضية المتقنة والاختراق من العمق عبر التيكي تاكا، يجعل من الصعب على أي خصم توقع خطوتك القادمة.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>3. الكيمياء التكتيكية وتناغم أسلوب لعب الفريق مع المدرب</h3>
+                    <p>قوة فريقك لا تُقاس فقط بطاقات اللاعبين الفردية، بل بمدى انسجامهم مع أسلوب لعب المدرب (Team Playstyle). سواء كنت تفضل الاستحواذ أو الهجمات المرتدة، يجب أن تختار لاعبين تتناسب مهاراتهم مع هذا الأسلوب بشكل دقيق. في eFootball 2026، التحركات الذكية للاعبين بدون كرة تعتمد كلياً على نسبة التناغم؛ فكلما كانت النسبة قريبة من 100، زادت سرعة استجابة اللاعبين وذكاء تمركزهم في الهجوم والدفاع، مما يمنحك السيطرة المطلقة على مجريات اللقاء لضمان تحرك الفريق ككتلة واحدة متجانسة في اللحظات الحاسمة.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>4. احتراف المهارات الفردية الفائقة واستغلال الثغرات في المواقف الحاسمة</h3>
+                    <p>المهارات الفردية أو السكيلز هي ما يصنع الفارق بين اللاعب الجيد واللاعب الأسطوري. لا تكتفِ فقط بالتحرك العادي، بل تعلم حركات المراوغة الحاسمة مثل Double Touch و Marsille Turn لفتح زوايا تسديد جديدة. كما يجب عليك معرفة المهارات الخاصة لكل لاعب في تشكيلتك؛ فإذا كان المهاجم يمتلك مهارة التسديد من بعيد، فلا تتردد في مباغتة الحارس بتسديدات قوية من خارج المنطقة. التدريب المستمر على توقيت تنفيذ هذه المهارات يجعلك لاعباً لا يمكن التنبؤ بحركاته ويضع دفاع الخصم دائماً في حالة توتر دائم وارتباك وتوجس.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>5. سيكولوجية إدارة المباراة والتبديلات الذهبية في الشوط الثاني</h3>
+                    <p>تنتهي المباراة غالباً في الشوط الثاني، وهنا يأتي دور المدرب الذكي في قراءة المتغيرات وإجراء التبديلات التكتيكية الصحيحة. يجب أن تمتلك دكة بدلاء متنوعة تحتوي على لاعبين بمهارة Super-sub، والذين ترتفع طاقاتهم بشكل كبير عند دخولهم بعد الدقيقة 60. راقب إجهاد لاعبيك (Stamina) باستمرار، لأن انخفاض اللياقة يؤدي إلى بطء الاستجابة وكثرة الأخطاء التمريرية ساذجة. قم بتحليل أسلوب خصمك؛ إذا كان يهاجم من الأطراف بكثافة، قم بتغيير تعليمات الأظهرة للبقاء في الخلف لضمان الفوز في الدقائق الأخيرة.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>6. استغلال الركلات الثابتة كحلول استراتيجية فتاكة لفك التكتلات</h3>
+                    <p>في المباريات المغلقة التي يغيب فيها الحل الهجومي المنظم، تصبح الركلات الركنية والضربات الحرة هي مفتاح الفوز الوحيد. يجب عليك اختيار منفذي ركلات متخصصين يمتلكون طاقات عالية في انحناء الكرة (Curling). تدرب على الزوايا المختلفة وكيفية توجيه الكرة فوق الحائط البشري، واستخدم تكتيكات الركنية الذكية مثل استدعاء لاعب قريب لفتح زاوية عرضية جديدة. المحترف الحقيقي يعتبر كل خطأ بالقرب من منطقة الجزاء بمثابة نصف هدف محقق، ولا يضيع هذه الفرص الثمينة التي قد تغير مسار البطولات الكبرى.</p>
+                </div>
+
+                <div class="tip-card">
+                    <h3>7. الذكاء الذهني والثبات الانفعالي للتعامل مع ضغوط المباريات الكبيرة</h3>
+                    <p>كرة القدم الإلكترونية هي صراع عقول قبل أن تكون مجرد حركة أصابع على جهاز التحكم. الحفاظ على الهدوء عند تلقي هدف مبكر هو ما يميز الأبطال عن المبتدئين. يجب أن تكون لديك عقلية مرنة تسمح لك بتغيير خطتك في منتصف المباراة إذا اكتشف الخصم نقاط ضعفك. تجنب الغضب الذي يشتت تركيزك ويجعلك ترتكب أخطاءً دفاعية ساذجة. الثقة في قدرتك على العودة في النتيجة حتى في الدقيقة 90 هي التي تمنحك الأفضلية النفسية وتجعلك تتخذ قرارات حكيمة تقودك في النهاية إلى منصة التتويج والحفاظ على التقدم.</p>
+                </div>
+
+            </div>
+            
+            <button class="btn-main" style="margin-top: 40px;" onclick="location.reload()">العودة للرئيسية 🔄</button>
+        </div>
+    </div>
+
+    <script>
+        function goToStep(stepNumber) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + stepNumber).classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // الرجوع للفوق عند كل مرحلة
+        }
+    </script>
+</body>
+</html>
