@@ -3,278 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameGoldPro | ADAM PIRLO</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <title>GameGoldPro - شحن كوينز eFootball</title>
     <style>
-        :root {
-            --primary-color: #ffcc00; 
-            --secondary-color: #8a2be2; 
-            --bg-dark: #0a0a0a;
-            --text-light: #ffffff;
-            --verify-blue: #0095f6;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        /* 1. Splash Screen */
-        #splash-screen {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 0.8s ease;
-        }
-
-        .logo-title {
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: var(--primary-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-            text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
-        }
-
-        .admin-name {
-            font-size: 1.4rem;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .verify-icon {
-            color: var(--verify-blue);
-            width: 18px; height: 18px;
-        }
-
-        /* 2. Main Container */
-        .container {
-            display: none;
-            width: 90%;
-            max-width: 450px;
-            background: #151515;
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-            text-align: center;
-            border: 1px solid #333;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin: 15px 0;
-            border-radius: 10px;
-            border: 1px solid #444;
-            background: #222;
-            color: white;
-            font-size: 1rem;
-            box-sizing: border-box;
-            text-align: center;
-        }
-
-        .btn-main {
-            background: linear-gradient(45deg, var(--secondary-color), #4b0082);
-            color: white;
-            border: none;
-            padding: 14px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            font-size: 1rem;
-        }
-
-        .btn-skip {
-            background: transparent;
-            color: #777;
-            border: none;
-            margin-top: 15px;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        /* 3. Follow Section */
-        .follow-item {
-            background: #1e1e1e;
-            padding: 12px;
-            margin: 10px 0;
-            border-radius: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border: 1px solid #333;
-        }
-
-        .follow-link {
-            background: var(--verify-blue);
-            color: white;
-            padding: 7px 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: bold;
-        }
-
-        /* 4. Loader */
-        .loader {
-            border: 4px solid #333;
-            border-top: 4px solid var(--verify-blue);
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-
-        /* 5. Tips Section */
-        #tips-screen {
-            display: none;
-            width: 95%;
-            max-width: 700px;
-            padding: 20px 10px;
-        }
-
-        .tip-card {
-            background: #1a1a1a;
-            padding: 18px;
-            margin-bottom: 15px;
-            border-right: 4px solid var(--secondary-color);
-            border-radius: 12px;
-            text-align: right;
-        }
-
-        .tip-card h3 { color: var(--primary-color); margin: 0 0 10px 0; font-size: 1.1rem; }
-        .tip-card p { line-height: 1.5; color: #ccc; margin: 0; font-size: 0.95rem; }
-
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #0d1117; color: white; text-align: center; margin: 0; padding: 20px; }
+        .container { max-width: 500px; margin: 40px auto; background: #161b22; padding: 30px; border-radius: 20px; border: 2px solid #238636; box-shadow: 0px 0px 20px rgba(35, 134, 54, 0.3); }
+        h1 { color: #f1c40f; font-size: 24px; margin-bottom: 10px; }
+        p { color: #8b949e; margin-bottom: 25px; }
+        .logo { width: 120px; margin-bottom: 15px; border-radius: 10px; }
+        iframe { width: 100%; border: none; border-radius: 10px; }
     </style>
 </head>
 <body>
 
-    <div id="splash-screen">
-        <div class="logo-title">GAMEGOLDPRO</div>
-        <div class="admin-name">
-            ADAM PIRLO
-            <svg class="verify-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22.5 12.5c0-1.58-.8-3.04-2.14-3.88.34-1.56.12-3.18-.8-4.1-.92-.92-2.54-1.14-4.1-.8-.84-1.34-2.3-2.14-3.88-2.14-1.58 0-3.04.8-3.88 2.14-1.56-.34-3.18-.12-4.1.8-.92.92-1.14 2.54-.8 4.1-1.34.84-2.14 2.3-2.14 3.88 0 1.58.8 3.04 2.14 3.88-.34 1.56-.12 3.18.8 4.1.92.92 2.54 1.14 4.1.8.84 1.34 2.3 2.14 3.88 2.14 1.58 0 3.04-.8 3.88-2.14 1.56.34 3.18.12 4.1-.8.92-.92 1.14-2.54.8-4.1 1.34-.84 2.14-2.3 2.14-3.88zM10.69 16L7.44 12.75l1.41-1.41 1.84 1.84 5.43-5.43 1.41 1.41L10.69 16z"/></svg>
-        </div>
-    </div>
-
-    <div id="name-screen" class="container">
-        <h2 style="color:var(--primary-color)">بطل eFootball</h2>
-        <p>أدخل اسمك للانطلاق في عالم الاحتراف</p>
-        <input type="text" id="username" placeholder="اكتب اسمك هنا...">
-        <button class="btn-main" onclick="goToFollow()">استمرار</button>
-        <button class="btn-skip" onclick="goToFollow()">تخطى هذه الخطوة مؤقتاً</button>
-    </div>
-
-    <div id="follow-screen" class="container">
-        <h2 style="color:var(--primary-color)">خطوة أخيرة</h2>
-        <p>يجب متابعة الحسابات الرسمية لتفعيل النصائح:</p>
+    <div class="container">
+        <img src="https://upload.wikimedia.org/wikipedia/en/3/39/EFootball_2022_logo.png" alt="eFootball Logo" class="logo">
+        <h1>GameGoldPro</h1>
+        <p>أدخل بيانات حسابك بدقة لتلقي الكوينز خلال 24 ساعة</p>
         
-        <div class="follow-item">
-            <span>متابعة على إنستغرام</span>
-            <a href="https://www.instagram.com/adampirlo___59?igsh=MXUxN2Z5YWF2bzN5eA==" target="_blank" class="follow-link" onclick="checkFollow('insta')">متابعة</a>
-        </div>
-
-        <div class="follow-item">
-            <span>متابعة على فيسبوك</span>
-            <a href="https://www.facebook.com/profile.php?id=61555217300879" target="_blank" class="follow-link" onclick="checkFollow('fb')">متابعة</a>
-        </div>
-
-        <button id="verify-btn" class="btn-main" style="margin-top:20px; opacity: 0.5;" disabled onclick="startVerification()">بدء التحقق</button>
+        <iframe data-tally-src="https://tally.so/embed/Gx0282?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="احصل على هديتك من الكوينز الآن"></iframe>
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>   
     </div>
 
-    <div id="loading-screen" class="container">
-        <p style="font-weight:bold">جاري التحقق</p>
-        <div class="loader"></div>
-    </div>
+    <footer style="margin-top: 40px; color: #484f58; font-size: 13px;">
+        <p>© 2026 GameGoldPro | جميع الحقوق محفوظة لمحبي eFootball</p>
+    </footer>
 
-    <div id="tips-screen">
-        <h1 style="text-align: center; color: var(--primary-color); margin-bottom:30px;">دليل احتراف eFootball مع ADAM</h1>
-        
-        <div id="tips-container"></div>
-
-        <button class="btn-main" onclick="location.reload()" style="margin-top:20px;">العودة للرئيسية 🔄</button>
-    </div>
-
-    <script>
-        const tipsData = [
-            ["1. الحارس الهجومي", "يفضل أن يكون الحارس بقدرات هجومية لأن أساليب اللعب الحالية تعتمد على العرضيات والكرات الطويلة والانفرادات."],
-            ["2. توتير الخصم في الانفرادات", "إذا انفرد بك الخصم، قم بتحريك الحارس خطوات بسيطة للأمام ثم اتركه؛ هذا يربك الخصم ويجعله يتسرع."],
-            ["3. توازن قلب الدفاع", "يجب أن يكون أحدهما (Destroyer) والآخر (Build Up) لتحقيق التوازن بين الضغط والتغطية."],
-            ["4. الدفاع بـ 3 لاعبين", "يفضل وضع اثنين (Build Up) على الأطراف، وواحد (Destroyer) في المنتصف لمنع الانفرادات."],
-            ["5. التبديل بين المطاردة والضغط", "استخدم 'الضغط' عندما يكون الخصم بعيداً، و 'المطاردة' عند الاقتراب لإغلاق المساحات."],
-            ["6. الدفاع داخل منطقة الجزاء", "تجنب الضغط العشوائي؛ قم بإغلاق زوايا التمرير والدفاع 'لاعب للاعب'."],
-            ["7. تغطية المحاور (DMF)", "إذا كان لديك أظهرة هجومية، أمن الدفاع باثنين (DMF)، أحدهما (Box-to-Box) والآخر (Orchestrator)."],
-            ["8. التمرير السريع للمحور", "إذا كان لاعب الـ (DMF) تمريراته ضعيفة، سلم الكرة فوراً لأقرب لاعب لتجنب انقطاعها."],
-            ["9. أساليب خط الوسط (CMF)", "أفضل أسلوبين هما (Box-to-Box) و (Hole Player) لتقوية الوسط."],
-            ["10. أجنحة خط الوسط (RMF/LMF)", "يفضل الاعتماد على مهاجمين، أو مهاجم صريح وبجانبه لاعب (SS) بأسلوب (Goal Poacher)."],
-            ["11. ثنائية الهجوم", "يجب أن يكون أحدهما (Goal Poacher)، وتحتهما لاعب (Hole Player) ليساند في الهجوم."],
-            ["12. الأظهرة في الخطط الضيقة", "من الضروري استخدام أظهرة هجومية لتوسيع الملعب وتقديم حلول عبر العرضيات."],
-            ["13. تجنب التمريرات العرضية الخطيرة", "حاول قدر الإمكان عدم لعب تمريرات عرضية بعرض الملعب لكي لا تفقد الاستحواذ."],
-            ["14. زر السرعة والتمرير", "لا تضغط زر السرعة أثناء التمرير أو الاستلام لكي لا تخرج التمريرة خاطئة."],
-            ["15. السرعة في الاستحواذ", "هام جداً: التحكم في ريتم اللعب هو مفتاح الفوز؛ لا تسرع دائماً بل ابحث عن الثغرة."]
-        ];
-
-        // عرض النصائح
-        const container = document.getElementById('tips-container');
-        tipsData.forEach(tip => {
-            container.innerHTML += `<div class="tip-card"><h3>${tip[0]}</h3><p>${tip[1]}</p></div>`;
-        });
-
-        // سكريبت الانتقالات
-        setTimeout(() => {
-            document.getElementById('splash-screen').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('splash-screen').style.display = 'none';
-                document.getElementById('name-screen').style.display = 'block';
-            }, 800);
-        }, 3000);
-
-        function goToFollow() {
-            document.getElementById('name-screen').style.display = 'none';
-            document.getElementById('follow-screen').style.display = 'block';
-        }
-
-        let followedInsta = false;
-        let followedFB = false;
-
-        function checkFollow(platform) {
-            if(platform === 'insta') followedInsta = true;
-            if(platform === 'fb') followedFB = true;
-            if(followedInsta && followedFB) {
-                const btn = document.getElementById('verify-btn');
-                btn.disabled = false;
-                btn.style.opacity = '1';
-            }
-        }
-
-        function startVerification() {
-            document.getElementById('follow-screen').style.display = 'none';
-            document.getElementById('loading-screen').style.display = 'block';
-            setTimeout(() => {
-                document.getElementById('loading-screen').style.display = 'none';
-                document.getElementById('tips-screen').style.display = 'block';
-                window.scrollTo(0, 0);
-            }, 3000);
-        }
-    </script>
 </body>
-</html>
+        </html>
+            
