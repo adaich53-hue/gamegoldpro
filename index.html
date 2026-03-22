@@ -1,161 +1,442 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <link rel="icon" type="image/png" href="favicon.png">
-  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>GameGoldPro - Adam Guide 2026</title>
-    <meta name="description" content="دليل آدم (Adam) لاحتراف لعبة eFootball 2026. تعلم استراتيجيات الدفاع، بناء الهجمة، وفنون المراوغة في مكان واحد.">
-    <meta name="keywords" content="GameGoldPro, eFootball 2026, Adam, احتراف إيفوتبول, نصائح دفاع, مراوغة">
-    <meta name="author" content="Adam">
-
-    <style>
+    <title>GAMEGOLDPRO - دليل احتراف eFootball مع ADAM PIRLO</title>
+    <link rel="icon" type="image/png" href="favicon.png"> <style>
         :root {
-            --primary-green: #00ff00;
-            --dark-overlay: rgba(0, 0, 0, 0.85);
+            --bg-color: #0d1117; /* لون الخلفية المظلم */
+            --card-bg: #161b22; /* لون الخلفية للعناصر */
+            --primary-color: #ffca2c; /* لون ذهبي مستوحى من الشعار */
+            --text-color: #ffffff;
+            --text-secondary: #8b949e;
+            --blue-verified: #0095f6; /* لون التوثيق الأزرق */
         }
+
         body {
-            background: linear-gradient(var(--dark-overlay), var(--dark-overlay)), 
-                        url('https://images.turtlesports.com/2023/09/eFootball-2024-Season-1.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
         }
-        .header {
-            background-color: rgba(0, 0, 0, 0.95);
-            padding: 40px 20px;
-            border-bottom: 5px solid var(--primary-green);
-            box-shadow: 0 10px 30px rgba(0, 255, 0, 0.2);
-        }
-        .title-green { color: var(--primary-green); font-size: clamp(30px, 8vw, 50px); font-weight: 900; margin: 0; text-shadow: 0 0 20px rgba(0,255,0,0.5); }
-        .subtitle { color: #ffffff; font-size: 24px; margin: 10px 0; letter-spacing: 5px; text-transform: uppercase; font-weight: 300; }
-        
-        .container { padding: 60px 20px; display: flex; flex-direction: column; align-items: center; min-height: 80vh; }
-        
-        .step { display: none; background: rgba(0, 0, 0, 0.9); border-radius: 30px; padding: 40px; width: 90%; max-width: 800px; border: 1px solid #333; box-shadow: 0 20px 60px rgba(0,0,0,0.9); }
-        .active { display: block; animation: fadeInUp 0.8s ease-out; }
-        
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
 
-        input {
-            width: 100%; max-width: 400px; padding: 18px; margin: 30px 0; border-radius: 15px; border: 2px solid var(--primary-green);
-            background: #111; color: white; font-size: 18px; text-align: center; transition: 0.3s;
+        .verified-badge {
+            color: var(--blue-verified);
+            display: inline-flex;
+            align-items: center;
+            margin-right: 5px;
+            vertical-align: middle;
         }
-        input:focus { box-shadow: 0 0 15px var(--primary-green); outline: none; }
+
+        /* --- واجهة الشاشة الترحيبية (Splash Screen) --- */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 1s;
+        }
+
+        #splash-screen img {
+            max-width: 80%;
+            max-height: 80%;
+            box-shadow: 0 0 30px rgba(255, 202, 44, 0.3);
+            border-radius: 15px;
+        }
+
+        /* --- واجهة إدخال الاسم --- */
+        #name-screen {
+            display: none;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .gamegold-title {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .user-title {
+            color: var(--text-color);
+            font-size: 1.2em;
+            margin-top: 5px;
+            margin-bottom: 30px;
+        }
+
+        .name-input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 202, 44, 0.2);
+            color: var(--text-color);
+            border-radius: 8px;
+            font-size: 1.1em;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .name-input:focus {
+            border-color: var(--primary-color);
+        }
 
         .btn-main {
-            background: var(--primary-green); color: black; padding: 20px 50px; border: none; border-radius: 15px;
-            font-weight: bold; font-size: 22px; cursor: pointer; transition: 0.4s; width: 100%; max-width: 400px;
+            width: 100%;
+            padding: 15px;
+            background-color: var(--primary-color);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
         }
-        .btn-main:hover { background: #05cc05; transform: scale(1.05); }
 
-        .skip-link { display: block; margin-top: 30px; color: #aaa; text-decoration: none; cursor: pointer; font-size: 18px; }
-
-        .social-links a {
-            display: block; background: #1877f2; color: white; padding: 22px; margin: 20px 0;
-            text-decoration: none; border-radius: 15px; font-weight: bold; font-size: 20px; transition: 0.3s;
+        .btn-main:hover {
+            background-color: #e5b326;
         }
-        .social-links a.insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
 
-        .tips-list { text-align: right; margin-top: 30px; }
-        .tip-card { background: rgba(255, 255, 255, 0.05); padding: 30px; border-radius: 20px; margin-bottom: 40px; border-right: 6px solid var(--primary-green); }
-        .tip-card h3 { color: var(--primary-green); font-size: 26px; margin-top: 0; }
-        .tip-card p { font-size: 19px; line-height: 1.9; color: #ddd; }
+        .btn-skip {
+            background: none;
+            color: var(--text-secondary);
+            border: none;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 0.9em;
+            text-decoration: underline;
+        }
+
+        /* --- واجهة المتابعة الإجبارية --- */
+        #follow-screen {
+            display: none;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .follow-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-sizing: border-box;
+            transition: transform 0.2s;
+        }
+
+        .follow-btn:hover {
+            transform: scale(1.03);
+        }
+
+        .follow-instagram {
+            background-color: var(--blue-verified); /* لون انستغرام */
+            color: #fff;
+        }
+
+        .follow-facebook {
+            background-color: #1877f2; /* لون فيسبوك */
+            color: #fff;
+        }
+
+        .follow-disclaimer {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        /* --- واجهة التحقق (Loading) --- */
+        #loading-screen {
+            display: none;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .loader {
+            border: 5px solid rgba(255, 202, 44, 0.2);
+            border-top: 5px solid var(--blue-verified); /* دائرة التحقق باللون الأزرق */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        #loading-screen p {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* --- واجهة النصائح النهائية --- */
+        #tips-screen {
+            display: none;
+            opacity: 0;
+            transition: opacity 1.5s;
+            padding: 40px 20px;
+            max-width: 900px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tips-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .tip-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 202, 44, 0.1);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .tip-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tip-card p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* --- استعلامات الوسائط (Media Queries) للهواتف --- */
+        @media (max-width: 600px) {
+            .tips-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1 class="title-green">GAMEGOLDPRO</h1>
-        <p class="subtitle">ADAM</p>
+    <div id="splash-screen">
+        <img src="image_9.png" alt="GAMEGOLDPRO Logo"> </div>
+
+    <div id="name-screen">
+        <h1 class="gamegold-title">GAMEGOLDPRO</h1>
+        <p class="user-title">
+            <span class="verified-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M22.5 12.5c0-1.58-.8-3.04-2.14-3.88.16-1.56.24-3.13.24-4.69 0-.83-.67-1.5-1.5-1.5-1.56 0-3.13.08-4.69.24C13.54.3 12.08-.5 10.5-.5c-1.58 0-3.04.8-3.88 2.14-1.56-.16-3.13-.24-4.69-.24-.83 0-1.5.67-1.5 1.5 0 1.56.08 3.13.24 4.69C.3 10.46-.5 11.92-.5 13.5c0 1.58.8 3.04 2.14 3.88-.16 1.56-.24 3.13-.24 4.69 0 .83.67 1.5 1.5 1.5 1.56 0 3.13-.08 4.69-.24.84 1.34 2.3 2.14 3.88 2.14 1.58 0 3.04-.8 3.88-2.14 1.56.16 3.13.24 4.69.24.83 0 1.5-.67 1.5-1.5 0-1.56-.08-3.13-.24-4.69 1.34-.84 2.14-2.3 2.14-3.88zm-5.07-2.67l-6.19 6.19a.75.75 0 01-1.06 0l-3.32-3.32a.75.75 0 111.06-1.06l2.79 2.79 5.66-5.66a.75.75 0 111.06 1.06z"/>
+                </svg>
+            </span>
+            ADAM PIRLO
+        </p>
+        <input type="text" id="username" class="name-input" placeholder="ادخل اسمك هنا...">
+        <button class="btn-main" onclick="goToFollow()">متابعة</button>
+        <button class="btn-skip" onclick="goToFollow()">تخطي</button>
     </div>
 
-    <div class="container">
-        <div id="step1" class="step active">
-            <h2>مرحباً بك في أكاديمية ADAM الاحترافية</h2>
-            <p>قبل الكشف عن أسرار eFootball 2026، ما هو اسمك ؟</p>
-            <input type="text" id="nameInput" placeholder="اكتب اسمك هنا...">
-            <br>
-            <button class="btn-main" onclick="goToStep(2)">استمرار للمرحلة التالية</button>
-            <a class="skip-link" onclick="goToStep(2)">تخطى هذه الخطوة مؤقتاً >></a>
-        </div>
-
-        <div id="step2" class="step">
-            <h2>خطوة واحدة تفصلك عن الاحتراف!</h2>
-            <p style="color: #ff9800; font-weight: bold;">يجب الضغط على الروابط بالأسفل لتفعيل قسم النصائح:</p>
-            <div class="social-links">
-                <a href="https://www.facebook.com/profile.php?id=61555217300879 id="fbLink" target="_blank" onclick="trackClick('fb')">1. متابعة عبر فيسبوك</a>
-                <a href="https://www.instagram.com/adampirlo___59?igsh=MXUxN2Z5YWF2bzN5eA== id="igLink" class="insta" target="_blank" onclick="trackClick('ig')">2. متابعة عبر إنستغرام</a>
-            </div>
-            <button class="btn-main" onclick="checkFollowStatus ✅</button>
-        </div>
-
-        <div id="step3" class="step">
-            <h2 style="color: var(--primary-green); border-bottom: 2px solid #333; padding-bottom: 20px;">دليل احتراف eFootball 2026 الشامل</h2>
-            
-            <div class="tips-list">
-                <div class="tip-card">
-                    <h3>1. استراتيجيات الدفاع السيبراني: فن السيطرة على المساحات وإغلاق المنافذ</h3>
-                    <p>يعتبر الدفاع في نسخة eFootball 2026 حجر الزاوية الذي يُبنى عليه النصر، فهو لا يعتمد فقط على القوة البدنية للمدافعين، بل يتطلب ذكاءً حاداً في قراءة تحركات الخصم قبل حدوثها. الاحتراف الحقيقي يبدأ بضبط إعدادات الدفاع التكتيكي والابتعاد عن الضغط العشوائي الذي يخلق فجوات قاتلة في الخط الخلفي. يجب عليك إتقان خاصية Match-up التي تجعل المدافع في حالة تأهب قصوى لقطع مسارات التمرير البينية، مع ضرورة الحفاظ على المسافة المثالية بين المدافع والمهاجم لمنع الانطلاقات السريعة. تذكر دائماً أن الدفاع هو "لعبة صبر"، فمن يندفع أولاً هو من يخسر التمركز، والمدرب الناجح هو من يجعل فريقه كتلة واحدة يصعب اختراقها مهما بلغت مهارة المهاجمين.</p>
-                </div>
-
-                <div class="tip-card">
-                    <h3>2. سيمفونية بناء الهجمة: التحكم في إيقاع المباراة وصناعة الفرص المستحيلة</h3>
-                    <p>بناء اللعب في النسخة الجديدة يتطلب هدوءاً كبيراً وقدرة على نقل الكرة بسلاسة بين الخطوط الثلاثة. لا تكتفِ بالاعتماد على الركض السريع، بل تعلم كيف "تُبرد" إيقاع اللعب من خلال التمريرات القصيرة في وسط الميدان لسحب لاعبي الخصم وإخراجهم من مناطقهم الدفاعية. استخدام التمريرات المذهلة (Stunning Pass) في الوقت المناسب، وتحويل اللعب من جهة إلى أخرى عبر الأجنحة، يشتت انتباه الدفاع ويخلق ثغرات يمكن استغلالها بلمسة واحدة. التنوع في أساليب الهجوم، ما بين الكرات العرضية المتقنة والاختراق من العمق عبر "التيكي تاكا"، يجعل من الصعب على أي خصم توقع خطوتك القادمة، مما يمنحك السيطرة المطلقة على مجريات اللقاء من البداية وحتى صافرة النهاية.</p>
-                </div>
-
-                <div class="tip-card">
-                    <h3>3. الكيمياء التكتيكية: الموازنة بين فلسفة المدرب ومهارات اللاعبين الفردية</h3>
-                    <p>قوة فريقك في eFootball 2026 لا تُستمد من بطاقات اللاعبين اللامعة فحسب، بل من مدى انسجامهم مع "فلسفة المدرب" التي تتبناها. سواء كنت تتبع أسلوب الاستحواذ أو الهجمات المرتدة السريعة، يجب أن يكون تطوير اللاعبين موجهاً لخدمة هذا الأسلوب بشكل دقيق. الانسجام أو "التناغم" (Team Playstyle) هو المحرك الخفي الذي يجعل اللاعبين يتحركون بذكاء اصطناعي فائق في المواقف الصعبة؛ فكلما ارتفعت هذه النسبة، زادت دقة التمركز وسرعة رد الفعل عند فقدان الكرة. استثمر وقتك في دراسة نقاط القوة لكل لاعب في تشكيلتك، وقم بتوزيع نقاط التطوير بحيث تضمن تكامل الأدوار، ليتحول فريقك من مجرد مجموعة نجوم إلى "ماكينة" كروية لا تتوقف عن الإبداع.</p>
-                </div>
-
-                <div class="tip-card">
-                    <h3>4. فن المراوغة والمهارات الفردية: سلاحك السري لكسر التكتلات الدفاعية</h3>
-                    <p>عندما تواجه خصماً يعتمد على الدفاع المتكتل أو "ركن الحافلة"، تصبح المهارات الفردية (Skills) هي المفتاح الوحيد لفتح الأواب المغلقة. تعلم حركات المراوغة الاحترافية مثل Double Touch و Marsille Turn ليس للاستعراض، بل لاستخدامها كأدوات وظيفية لتجاوز المدافعين في المساحات الضيقة. التوقيت هو العنصر الحاسم هنا؛ فتنفيذ المهارة في جزء من الثانية قبل تدخل المدافع يمنحك أفضلية التجاوز والانفراد بالمرمى. كما يجب عليك إدرك المهارات الخاصة لكل لاعب؛ فالمهاجم الذي يمتلك مهارة "التسديد من بعيد" أو "اللمسة الواحدة" يمنحك حلولاً إضافية خارج منطقة الجزاء، مما يجعل دفاع الخصم دائماً في حالة ارتباك وتوجس من كل حركة تقوم بها.</p>
-                </div>
-
-                <div class="tip-card">
-                    <h3>5. الإدارة الذهنية والتبديلات الذهبية: كيف تكسب المباريات في الدقائق الأخيرة</h3>
-                    <p>تنتهي معظم مباريات المحترفين في الشوط الثاني، وهنا تبرز عبقرية المدرب في قراءة المتغيرات وإجراء التبديلات التكتيكية الصحيحة. يجب أن تراقب مستوى "اللياقة البدنية" (Stamina) للاعبيك باستمرار، لأن التعب يؤدي إلى انهيار التركيز وضياع التمريرات السهلة. وجود دكة بدلاء تضم لاعبين بمهارة Super-sub (البديل السوبر) هو أمر لا غنى عنه، حيث تنقلب الموازين بدخول لاعب طازج وقوي في الدقيقة 60 ليواجه مدافعين منهكين. الثبات الانفعالي والهدوء في اللحظات الأخيرة، مع القدرة على تغيير أسلوب اللعب من الهجوم الضاغط إلى الدفاع المتوازن للحفاظ على النتيجة، هو ما يميز اللاعب "الأسطوري" عن غيره، فكرة القدم الإلكترونية هي صراع عقول قبل أن تكون سرعة أصابع.</p>
-                </div>
-            </div>
-            
-            <button class="btn-main" style="margin-top: 40px;" onclick="location.reload()">العودة للرئيسية 🔄</button>
-        </div>
+    <div id="follow-screen">
+        <h2>من أجل الاستمرار، يرجى المتابعة:</h2>
+        <a href="https://www.instagram.com/adampirlo___59?igsh=MXUxN2Z5YWF2bzN5eA== target="_blank" class="follow-btn follow-instagram" onclick="setFollowState('ig')">متابعة على انستغرام</a>
+        <a href="/https://www.facebook.com/profile.php?id=61555217300879 target="_blank" class="follow-btn follow-facebook" onclick="setFollowState('fb')">متابعة على فيسبوك</a>
+        <p class="follow-disclaimer">يجب القيام بالمتابعة على كلا المنصتين لتفعيل النصائح الاحترافية.</p>
     </div>
 
-    <img src="https://profile-counter.glitch.me/adaich53-hue/count.svg" alt="visitors" style="opacity: 0.01;">
+    <div id="loading-screen">
+        <p>جاري التحقق</p>
+        <div class="loader"></div>
+    </div>
+
+    <div id="tips-screen">
+        <h1 style="color:var(--primary-color); text-align:center; margin-bottom: 40px;">نصائح احترافية لتطوير مستواك</h1>
+        <div class="tips-container">
+
+            <div class="tip-card">
+                <h3>النصيحة الأولى: الحارس الهجومي</h3>
+                <p>يفضل أن يكون الحارس بقدرات هجومية لأن أساليب اللعب الحالية تعتمد على العرضيات والكرات الطويلة والانفرادات، فالحارس الهجومي هو الأنسب للتعامل مع هذه الحالات وبناء الهجمة من الخلف.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الثانية: توتير الخصم</h3>
+                <p>إذا انفرد بك الخصم، قم بتحريك الحارس خطوات بسيطة للأمام ثم اتركه دون أن يخرج من منطقة الجزاء؛ هذا التصرف يربك الخصم ويجعله يتخذ قراراً متسرعاً بالتسديد.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الثالثة: توازن قلب الدفاع</h3>
+                <p>عند اللعب باثنين في قلب الدفاع، يجب أن يكون أحدهما بأسلوب (Destroyer) والآخر (Build Up) لتحقيق التوازن، حيث يتقدم الأول للضغط بينما يتأخر الثاني للتغطية.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الرابعة: الدفاع بـ 3 لاعبين</h3>
+                <p>إذا كانت خطتك تعتمد على 3 مدافعين، يفضل وضع اثنين بأسلوب (Build Up) وعلى الأطراف، وواحد (Destroyer) في المنتصف لمنع الانفرادات بسهولة.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الخامسة: المطاردة والضغط</h3>
+                <p>استخدم "الضغط" عندما يكون الخصم بعيداً ليجري لاعبك بأقصى سرعته، وبمجرد الاقتراب منه بدّل إلى "المطاردة" لإغلاق المساحات واعتراض التمريرات.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة السادسة: منطقة الجزاء</h3>
+                <p>تجنب الضغط العشوائي باللاعبين داخل المنطقة لكي لا تترك مساحات خلفك؛ قم بإغلاق زوايا التمرير والدفاع "لاعب للاعب".</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة السابعة: تغطية المحاور (DMF)</h3>
+                <p>إذا كان لديك أظهرة هجومية، يجب تأمين الدفاع باثنين (DMF)، يفضل أن يكون أحدهما (Box-to-Box) والآخر (Orchestrator/Playmaker).</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الثامنة: التمرير السريع للمحور</h3>
+                <p>إذا كان لاعب الـ (DMF) يمتلك تمريرات ضعيفة، فلا تحتفظ بالكرة معه طويلاً؛ قم بتسليمها مباشرة لأقرب لاعب لتجنب انقطاعها.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة التاسعة: أساليب الوسط (CMF)</h3>
+                <p>أفضل أسلوبين لتقوية خط الوسط هما (Box-to-Box) و (Hole Player)، خاصة في أساليب الاستحواذ أو الهجمات المرتدة.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة العاشرة: أجنحة الوسط</h3>
+                <p>عند اللعب بأجنحة في الوسط، يفضل الاعتماد على مهاجمين في الأمام، أو مهاجم صريح وبجانبه لاعب (SS) بأسلوب (Goal Poacher).</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الحادية عشر: ثنائية الهجوم</h3>
+                <p>في حال اللعب بمهاجمين اثنين، يجب أن يكون أحدهما (Goal Poacher)، وتحتهما لاعب (Hole Player) ليساند في الهجوم وخط الوسط.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الثانية عشر: الأظهرة الهجومية</h3>
+                <p>إذا كنت تلعب بخطة لا تحتوي على أجنحة، فمن الضروري استخدام أظهرة هجومية لتوسيع الملعب وتقديم حلول عبر العرضيات.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الثالثة عشر: العرضيات الخطيرة</h3>
+                <p>حاول قدر الإمكان عدم لعب تمريرات عرضية بعرض الملعب أو كرات عالية عشوائية لكي لا تفقد الاستحواذ بسهولة.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الرابعة عشر: زر السرعة والتمرير</h3>
+                <p>لا تضغط على زر السرعة أثناء تمرير الكرة لكي لا تخرج التمريرة خاطئة، ولا تضغط عليه أيضاً أثناء استلام الكرة.</p>
+            </div>
+
+            <div class="tip-card">
+                <h3>النصيحة الخامسة عشر: السرعة في الاستحواذ</h3>
+                <p>لمحبي التيكي تاكا، لا تستخدم زر السرعة نهائياً أثناء بناء الهجمة، واستخدمه فقط عند الانفراد التام بالمرمى.</p>
+            </div>
+
+        </div>
+    </div>
 
     <script>
-        let clickedFB = false;
-        let clickedIG = false;
+        // --- متغيرات الحالة ---
+        let followedIG = false;
+        let followedFB = false;
 
-        function trackClick(platform) {
-            if(platform === 'fb') clickedFB = true;
-            if(platform === 'ig') clickedIG = true;
+        // --- وظائف JavaScript للتحكم بالواجهات ---
+
+        // 1. إظهار واجهة الاسم بعد 5 ثواني
+        setTimeout(function() {
+            document.getElementById('splash-screen').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('splash-screen').style.display = 'none';
+                showElement('name-screen');
+            }, 1000); // وقت الاختفاء
+        }, 5000); // 5 ثواني
+
+        // الانتقال لواجهة المتابعة
+        function goToFollow() {
+            hideElement('name-screen');
+            showElement('follow-screen');
         }
 
-        function checkFollowStatus() {
-            if(clickedFB && clickedIG) {
-                goToStep(3);
-            } else {
-                alert("من فضلك، قم بالضغط على روابط الفيسبوك والإنستغرام أولاً للمتابعة وفتح النصائح.");
+        // تسجيل حالة المتابعة
+        function setFollowState(platform) {
+            if (platform === 'ig') followedIG = true;
+            if (platform === 'fb') followedFB = true;
+
+            // التحقق مما إذا تم متابعة كلا المنصتين
+            checkFollowCompletion();
+        }
+
+        // التحقق من اكتمال المتابعة وبدء واجهة التحقق
+        function checkFollowCompletion() {
+            if (followedIG && followedFB) {
+                hideElement('follow-screen');
+                showElement('loading-screen');
+
+                // بدء واجهة النصائح بعد 3 ثواني من التحقق
+                setTimeout(function() {
+                    hideElement('loading-screen');
+                    showTips();
+                }, 3000);
             }
         }
 
-        function goToStep(stepNumber) {
-            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-            document.getElementById('step' + stepNumber).classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // إظهار النصائح بشكل احترافي
+        function showTips() {
+            // إظهار واجهة النصائح أولاً
+            document.getElementById('tips-screen').style.display = 'flex';
+            // ثم تغيير الشفافية للتأثير البصري
+            setTimeout(function() {
+                document.getElementById('tips-screen').style.opacity = '1';
+            }, 50);
         }
+
+        // وظائف مساعدة لإظهار وإخفاء العناصر
+        function showElement(id) {
+            document.getElementById(id).style.display = 'block';
+            setTimeout(function() {
+                document.getElementById(id).style.opacity = '1';
+            }, 50);
+        }
+
+        function hideElement(id) {
+            document.getElementById(id).style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById(id).style.display = 'none';
+            }, 1000);
+        }
+
     </script>
 </body>
 </html>
