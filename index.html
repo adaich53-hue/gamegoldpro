@@ -8,6 +8,17 @@
     <meta name="keywords" content="eFootball, GameGuardian, إخراج الخصم من المباراة, تحميل GameGuardian, تهكير eFootball, سكريبت eFootball, Adam Pirlo, GameGoldPro">
     
     <style>
+        /* ستايل الموقع الأساسي */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            line-height: 1.8;
+            overflow: hidden; /* منع التمرير أثناء واجهة الانتظار */
+        }
+
         /* واجهة الانتظار (Splash Screen) */
         #splash-screen {
             position: fixed;
@@ -23,6 +34,7 @@
             z-index: 9999;
             color: white;
             transition: opacity 0.5s ease-out;
+            opacity: 1; /* ظاهرة بشكل افتراضي */
         }
 
         #splash-screen h1 {
@@ -38,6 +50,7 @@
             align-items: center;
             gap: 8px;
             color: #ddd;
+            margin-bottom: 20px;
         }
 
         /* علامة التوثيق الزرقاء */
@@ -62,7 +75,7 @@
             height: 6px;
             background: #333;
             border-radius: 10px;
-            margin-top: 20px;
+            margin-top: 10px;
             overflow: hidden;
         }
 
@@ -70,7 +83,7 @@
             width: 0%;
             height: 100%;
             background: #3498db;
-            animation: fillBar 4s linear forwards;
+            animation: fillBar 4s linear forwards; /* الحركة تأخذ 4 ثواني */
         }
 
         @keyframes fillBar {
@@ -78,18 +91,9 @@
             100% { width: 100%; }
         }
 
-        /* ستايل الموقع الأساسي */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-            line-height: 1.8;
-            display: none; /* مخفي حتى تنتهي واجهة الانتظار */
-        }
-
-        .container {
+        /* ستايل محتوى الصفحة الأساسي */
+        #main-content-container {
+            display: none; /* مخفي في البداية */
             max-width: 800px;
             margin: 0 auto;
             background: #fff;
@@ -186,7 +190,7 @@
     <p style="margin-top: 10px;">انتظر... </p>
 </div>
 
-<div class="container" id="main-content">
+<div id="main-content-container">
     <header>
         <h1>شرح استخدام وتحميل تطبيق GameGuardian ولعبة eFootball</h1>
     </header>
@@ -212,7 +216,7 @@
         </ul>
 
         <div class="note">
-            ⚠️ تنبيه هام: استخدام هذا التطبيق لتعديل الألعاب أونلاين يعتبر غشاً وقد يؤدي إلى حظر حسابك في حالات نادرة بشكل دائم من طرف شركة Konami. نحن لا نشجع على الغش، وهذا الشرح للأغراض التعليمية وفهم كيفية عمل التطبيقات فقط.
+            ⚠️  تنبيه هام: استخدام هذا التطبيق لتعديل الألعاب أونلاين يعتبر غشاً وقد يؤدي إلى حظر حسابك في حالات نادرة  Konami. نحن لا نشجع على الغش، وهذا الشرح للأغراض التعليمية وفهم كيفية عمل التطبيقات فقط.
         </div>
     </section>
 
@@ -229,27 +233,40 @@
         </a>
     </section>
 
+    <footer>
+        <p>&copy; 2026 GameGoldPro adampirlo. جميع الحقوق محفوظة.</p>
+    </footer>
+
 </div>
 
-<footer>
-    <p>&copy; 2026 GameGoldPro adampirlo. جميع الحقوق محفوظة.</p>
-</footer>
-
 <script>
-    // التحكم في واجهة الانتظار
-    setTimeout(function() {
-        document.getElementById('splash-screen').style.opacity = '0';
-        setTimeout(function() {
-            document.getElementById('splash-screen').style.display = 'none';
-            document.body.style.display = 'block';
-        }, 500);
-    }, 4000);
+    // الجافاسكريبت للتحكم في الواجهات
+    window.onload = function() {
+        const splashScreen = document.getElementById('splash-screen');
+        const mainContent = document.getElementById('main-content-container');
 
-    // تفعيل زر التحميل بعد الضغط على المتابعة
+        // بعد مرور 4 ثواني (مدة شريط التحميل)
+        setTimeout(function() {
+            // إخفاء واجهة الانتظار تدريجياً
+            splashScreen.style.opacity = '0';
+            
+            // بعد انتهاء تأثير الاختفاء (نصف ثانية إضافية)
+            setTimeout(function() {
+                splashScreen.style.display = 'none'; // إخفاءها تماماً
+                mainContent.style.display = 'block'; // إظهار محتوى الصفحة
+                document.body.style.overflow = 'auto'; // السماح بالتمرير مجدداً
+            }, 500); 
+
+        }, 4000); // 4000 ميلي ثانية = 4 ثواني
+    };
+
+    // تفعيل زر التحميل بعد الضغط على زر انستغرام
     function enableDownload() {
         const downloadBtn = document.getElementById('down-btn');
         downloadBtn.classList.add('active');
         downloadBtn.innerText = "تحميل التطبيق الآن";
+        downloadBtn.style.opacity = '1';
+        downloadBtn.style.pointerEvents = 'auto';
     }
 </script>
 
