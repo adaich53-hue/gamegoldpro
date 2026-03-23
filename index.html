@@ -3,9 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرح GameGuardian لـ eFootball | GameGoldPro</title>
+    <title>GameGoldPro | شرح GameGuardian وطريقة إخراج الخصم في eFootball 2026</title>
+    <meta name="description" content="تعلم كيفية تحميل واستخدام GameGuardian في لعبة eFootball، وشرح حصري لطريقة إخراج الخصم من المباراة مع Adam Pirlo.">
+    <meta name="keywords" content="eFootball, GameGuardian, إخراج الخصم من المباراة, تحميل GameGuardian, تهكير eFootball, سكريبت eFootball, Adam Pirlo, GameGoldPro">
+    
     <style>
-        /* ستايل عصري ونقي للموقع */
+        /* واجهة الانتظار (Splash Screen) */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1a1a1a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: white;
+            transition: opacity 0.5s ease-out;
+        }
+
+        #splash-screen h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #3498db;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .user-name {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #ddd;
+        }
+
+        /* علامة التوثيق الزرقاء */
+        .verified-badge {
+            width: 20px;
+            height: 20px;
+            background-color: #1DA1F2;
+            border-radius: 50%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .verified-badge::after {
+            content: '✔';
+            color: white;
+            font-size: 12px;
+        }
+
+        .loader-container {
+            width: 200px;
+            height: 6px;
+            background: #333;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .loader-bar {
+            width: 0%;
+            height: 100%;
+            background: #3498db;
+            animation: fillBar 4s linear forwards;
+        }
+
+        @keyframes fillBar {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+
+        /* ستايل الموقع الأساسي */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f7f6;
@@ -13,6 +86,7 @@
             padding: 20px;
             color: #333;
             line-height: 1.8;
+            display: none; /* مخفي حتى تنتهي واجهة الانتظار */
         }
 
         .container {
@@ -58,30 +132,37 @@
             font-weight: bold;
         }
 
-        /* ستايل زر التحميل */
-        .download-button {
+        /* ستايل الأزرار */
+        .btn {
             display: block;
             width: 250px;
-            margin: 0 auto;
+            margin: 10px auto;
             padding: 15px 20px;
-            background-color: #27ae60;
-            color: white;
             text-align: center;
             text-decoration: none;
             font-size: 18px;
             font-weight: bold;
             border-radius: 50px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: background-color 0.3s, transform 0.2s;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
         }
 
-        .download-button:hover {
-            background-color: #2ecc71;
-            transform: translateY(-3px);
+        .insta-button {
+            background-color: #E1306C;
+            color: white;
         }
 
-        .download-button:active {
-            transform: translateY(1px);
+        .download-button {
+            background-color: #27ae60;
+            color: white;
+            opacity: 0.5;
+            pointer-events: none; /* معطل حتى يتم الضغط على انستغرام */
+        }
+
+        .download-button.active {
+            opacity: 1;
+            pointer-events: auto;
         }
         
         footer {
@@ -94,7 +175,18 @@
 </head>
 <body>
 
-<div class="container">
+<div id="splash-screen">
+    <h1>GAMEGOLDPRO</h1>
+    <div class="user-name">
+        ADAM PIRLO <span class="verified-badge"></span>
+    </div>
+    <div class="loader-container">
+        <div class="loader-bar"></div>
+    </div>
+    <p style="margin-top: 10px;">انتظر... </p>
+</div>
+
+<div class="container" id="main-content">
     <header>
         <h1>شرح استخدام وتحميل تطبيق GameGuardian ولعبة eFootball</h1>
     </header>
@@ -120,21 +212,46 @@
         </ul>
 
         <div class="note">
-            ⚠️ تنبيه هام: استخدام هذا التطبيق لتعديل الألعاب أونلاين يعتبر غشاً وقد يؤدي إلى حظر حسابك (Ban) بشكل دائم من طرف شركة Konami. نحن لا نشجع على الغش، وهذا الشرح للأغراض التعليمية وفهم كيفية عمل التطبيقات فقط.
+            ⚠️ تنبيه هام: استخدام هذا التطبيق لتعديل الألعاب أونلاين يعتبر غشاً وقد يؤدي إلى حظر حسابك في حالات نادرة بشكل دائم من طرف شركة Konami. نحن لا نشجع على الغش، وهذا الشرح للأغراض التعليمية وفهم كيفية عمل التطبيقات فقط.
         </div>
     </section>
 
-    <section class="download-section">
+    <section class="download-section" style="text-align: center;">
         <h2>تحميل تطبيق GameGuardian</h2>
-        <p>اضغط على الزر أدناه للانتقال إلى صفحة التحميل الرسمية أو المباشرة لتطبيق GameGuardian:</p>
-        <a href="https://gameguardian.net/download" class="download-button" target="_blank">تحميل GameGuardian APK</a>
+        <p>يجب عليك أولاً متابعة ADAM PIRLO على إنستغرام لفتح رابط التحميل:</p>
+        
+        <a href="https://www.instagram.com/adampirlo___59?igsh=MXUxN2Z5YWF2bzN5eA==" target="_blank" class="btn insta-button" id="follow-btn" onclick="enableDownload()">
+            1. تابعني على إنستغرام
+        </a>
+
+        <a href="https://gameguardian.net/download" class="btn download-button" id="down-btn" target="_blank">
+            2. تحميل GameGuardian APK
+        </a>
     </section>
 
 </div>
 
 <footer>
-    <p>&copy; 2023 GameGoldPro. جميع الحقوق محفوظة.</p>
+    <p>&copy; 2026 GameGoldPro adampirlo. جميع الحقوق محفوظة.</p>
 </footer>
+
+<script>
+    // التحكم في واجهة الانتظار
+    setTimeout(function() {
+        document.getElementById('splash-screen').style.opacity = '0';
+        setTimeout(function() {
+            document.getElementById('splash-screen').style.display = 'none';
+            document.body.style.display = 'block';
+        }, 500);
+    }, 4000);
+
+    // تفعيل زر التحميل بعد الضغط على المتابعة
+    function enableDownload() {
+        const downloadBtn = document.getElementById('down-btn');
+        downloadBtn.classList.add('active');
+        downloadBtn.innerText = "تحميل التطبيق الآن";
+    }
+</script>
 
 </body>
 </html>
