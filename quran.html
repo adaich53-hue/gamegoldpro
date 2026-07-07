@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://www.transparenttextures.com/patterns/arabesque.png'); padding: 20px; text-align: center; }
-        .hero { margin: 50px auto; padding: 20px; background: #fff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 90%; max-width: 500px; }
-        .search-box { margin-top: 30px; }
-        input { width: 80%; padding: 15px; border: 2px solid #28a745; border-radius: 10px; }
+        body { font-family: sans-serif; background-color: #f0f2f5; padding: 20px; text-align: center; }
+        .nav-links { margin-bottom: 20px; }
+        .nav-links a { margin: 0 10px; color: #007bff; text-decoration: none; font-weight: bold; }
+        .hero { margin: 20px auto; padding: 20px; background: #fff; border-radius: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
     </style>
 </head>
 <body>
 
-    <!-- قسم الترحيب والإعلان -->
-    <div class="hero">
-        <h2>أهلاً بك في قسم القرآن</h2>
-        <p>لا تنسَ الاشتراك قناتنا اطمئن في القناة ودعمنا لنستمر في نشر الخير.</p>
-        <button style="background:#28a745; color:white; border:none; padding:10px 20px; border-radius:5px;">اشترك الآن</button>
+    <!-- روابط التنقل -->
+    <div class="nav-links">
+        <a href="index.html">الرئيسية</a> | 
+        <a href="dreams.html">تفسير الأحلام</a>
     </div>
 
-    <!-- قسم البحث -->
-    <div class="search-box">
-        <h3>ابحث عن السورة</h3>
-        <input type="text" placeholder="اكتب اسم السورة هنا...">
+    <!-- الإعلان/الترحيب -->
+    <div class="hero">
+        <h3>أهلاً بك في قسم القرآن</h3>
+        <p>لا تنسَ دعمنا بالاشتراك في قناة "اطمئن".</p>
     </div>
+
+    <!-- خانة البحث -->
+    <input type="text" placeholder="ابحث عن السورة..." style="padding: 10px; width: 80%; border-radius: 5px; border: 1px solid #ccc;">
 
 </body>
 </html>
