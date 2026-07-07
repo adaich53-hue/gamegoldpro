@@ -2,29 +2,43 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>تفسير الأحلام</title>
+    <title>تفسير الأحلام - اطمئن</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f0f2f5; padding: 20px; text-align: center; }
-        input { width: 80%; padding: 15px; margin-bottom: 20px; border-radius: 10px; border: 1px solid #ddd; font-size: 18px; }
-        .result { background: white; padding: 20px; margin: 10px auto; width: 80%; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .loading { color: #555; font-style: italic; }
+        body { font-family: sans-serif; background-color: #f9f9f9; text-align: center; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        input { width: 90%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; }
+        #result { margin-top: 20px; padding: 15px; border-top: 2px solid #007bff; display: none; }
     </style>
 </head>
 <body>
-    <h1>تفسير الأحلام</h1>
-    <input type="text" id="dreamSearch" placeholder="اكتب ما رأيته في حلمك (مثلاً: مطر، ثعبان)...">
-    <div id="dreamContent"></div>
 
-    <script>
-        document.getElementById('dreamSearch').addEventListener('input', function(e) {
-            const query = e.target.value;
-            if(query.length > 0) {
-                document.getElementById('dreamContent').innerHTML = '<div class="loading">جاري تحميل التفسير...</div>';
-                // سنربط هذا لاحقاً بقاعدة بيانات الأحلام
-            } else {
-                document.getElementById('dreamContent').innerHTML = '';
-            }
-        });
-    </script>
+<div class="container">
+    <h2>تفسير الأحلام</h2>
+    <input type="text" id="searchInput" placeholder="اكتب رمز الحلم (مثال: مطر)..." onkeyup="searchDreams()">
+    <div id="result"></div>
+    <br>
+    <a href="index.html">العودة للرئيسية</a>
+</div>
+
+<script>
+    // قاعدة بيانات سريعة للأحلام
+    const dreamsData = {
+        "مطر": "المطر في المنام خير ورزق وبركة، وقد يدل على استجابة الدعاء.",
+        "سفر": "السفر في المنام قد يدل على تغيير في حال الرائي أو انتقال لمرحلة جديدة.",
+        "بحر": "رؤية البحر تدل على سعة الرزق والعلم، أو قد ترمز لهيبة السلطان."
+    };
+
+    function searchDreams() {
+        let input = document.getElementById('searchInput').value;
+        let resultDiv = document.getElementById('result');
+        if (dreamsData[input]) {
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = "<strong>تفسير حلم (" + input + "):</strong><br>" + dreamsData[input];
+        } else {
+            resultDiv.style.display = 'none';
+        }
+    }
+</script>
+
 </body>
 </html>
