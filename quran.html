@@ -2,29 +2,27 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>القرآن الكريم وتفسيره</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, sans-serif; background-color: #f4f7f6; padding: 20px; text-align: center; }
-        input { width: 80%; padding: 15px; margin-bottom: 20px; border-radius: 10px; border: 1px solid #ccc; font-size: 18px; }
-        .result { background: white; padding: 20px; margin: 10px auto; width: 80%; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .loading { color: #888; font-style: italic; }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url('https://www.transparenttextures.com/patterns/arabesque.png'); padding: 20px; text-align: center; }
+        .hero { margin: 50px auto; padding: 20px; background: #fff; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); width: 90%; max-width: 500px; }
+        .search-box { margin-top: 30px; }
+        input { width: 80%; padding: 15px; border: 2px solid #28a745; border-radius: 10px; }
     </style>
 </head>
 <body>
-    <h1>القرآن الكريم</h1>
-    <input type="text" id="search" placeholder="اكتب اسم السورة للبحث عنها...">
-    <div id="content"></div>
 
-    <script>
-        document.getElementById('search').addEventListener('input', function(e) {
-            const query = e.target.value;
-            if(query.length > 0) {
-                document.getElementById('content').innerHTML = '<div class="loading">جاري تحميل البيانات...</div>';
-                // هنا سيتم ربط البحث مستقبلاً
-            } else {
-                document.getElementById('content').innerHTML = '';
-            }
-        });
-    </script>
+    <!-- قسم الترحيب والإعلان -->
+    <div class="hero">
+        <h2>أهلاً بك في قسم القرآن</h2>
+        <p>لا تنسَ الاشتراك قناتنا اطمئن في القناة ودعمنا لنستمر في نشر الخير.</p>
+        <button style="background:#28a745; color:white; border:none; padding:10px 20px; border-radius:5px;">اشترك الآن</button>
+    </div>
+
+    <!-- قسم البحث -->
+    <div class="search-box">
+        <h3>ابحث عن السورة</h3>
+        <input type="text" placeholder="اكتب اسم السورة هنا...">
+    </div>
+
 </body>
 </html>
