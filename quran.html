@@ -4,41 +4,27 @@
     <meta charset="UTF-8">
     <title>القرآن الكريم - اطمئن</title>
     <style>
-        body { font-family: sans-serif; background-color: #f9f9f9; text-align: center; padding: 20px; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        input { width: 90%; padding: 12px; border: 1px solid #ccc; border-radius: 5px; margin-bottom: 20px; }
-        #result { margin-top: 20px; padding: 15px; border-top: 2px solid #28a745; display: none; }
+        body { font-family: sans-serif; background-color: #f4f4f4; text-align: center; padding: 20px; }
+        .box { background: white; padding: 30px; border-radius: 15px; max-width: 500px; margin: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        input { width: 80%; padding: 15px; border: 2px solid #28a745; border-radius: 10px; font-size: 16px; margin-bottom: 10px; }
+        button { padding: 15px 30px; background: #28a745; color: white; border: none; border-radius: 10px; cursor: pointer; }
     </style>
 </head>
 <body>
-
-<div class="container">
+<div class="box">
     <h2>القرآن الكريم</h2>
-    <input type="text" id="searchInput" placeholder="اكتب اسم السورة (مثال: الفاتحة)..." onkeyup="searchQuran()">
-    <div id="result"></div>
+    <p>اكتب اسم السورة للبحث عن تفسيرها الموثوق:</p>
+    <input type="text" id="inputVal" placeholder="مثال: الفاتحة">
     <br>
+    <button onclick="search()">بحث</button>
+    <br><br>
     <a href="index.html">العودة للرئيسية</a>
 </div>
-
 <script>
-    // هذه البيانات مخزنة داخل الموقع مباشرة للسرعة
-    const quranData = {
-        "الفاتحة": "تعد سورة الفاتحة أعظم سورة في القرآن، وهي الركن الأساسي في كل صلاة.",
-        "الإخلاص": "سورة الإخلاص تعادل ثلث القرآن، وتتحدث عن توحيد الله عز وجل.",
-        "الكهف": "سورة مكية، من قرأها يوم الجمعة أضاء له من النور ما بين الجمعتين."
-    };
-
-    function searchQuran() {
-        let input = document.getElementById('searchInput').value;
-        let resultDiv = document.getElementById('result');
-        if (quranData[input]) {
-            resultDiv.style.display = 'block';
-            resultDiv.innerHTML = "<strong>" + input + ":</strong><br>" + quranData[input];
-        } else {
-            resultDiv.style.display = 'none';
-        }
+    function search() {
+        let val = document.getElementById('inputVal').value;
+        if(val) window.open('https://www.google.com/search?q=تفسير+سورة+' + val, '_blank');
     }
 </script>
-
 </body>
 </html>
