@@ -4,26 +4,29 @@
     <meta charset="UTF-8">
     <title>القرآن الكريم - اطمئن</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f4; text-align: center; padding: 20px; }
-        .box { background: white; padding: 30px; border-radius: 15px; max-width: 500px; margin: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        input { width: 80%; padding: 15px; border: 2px solid #28a745; border-radius: 10px; font-size: 16px; margin-bottom: 10px; }
-        button { padding: 15px 30px; background: #28a745; color: white; border: none; border-radius: 10px; cursor: pointer; }
+        body { font-family: sans-serif; background-color: #f4f4f4; text-align: center; padding: 10px; }
+        .box { background: white; padding: 15px; border-radius: 10px; max-width: 600px; margin: auto; }
+        input { width: 70%; padding: 10px; border: 2px solid #28a745; border-radius: 5px; }
+        button { padding: 10px 20px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        iframe { width: 100%; height: 500px; border: none; margin-top: 20px; }
     </style>
 </head>
 <body>
 <div class="box">
     <h2>القرآن الكريم</h2>
-    <p>اكتب اسم السورة للبحث عن تفسيرها الموثوق:</p>
-    <input type="text" id="inputVal" placeholder="مثال: الفاتحة">
+    <input type="text" id="surahInput" placeholder="اكتب اسم السورة...">
+    <button onclick="showTafsir()">عرض التفسير</button>
     <br>
-    <button onclick="search()">بحث</button>
-    <br><br>
-    <a href="index.html">العودة للرئيسية</a>
+    <!-- هنا ستظهر نافذة التفسير داخل موقعك -->
+    <iframe id="tafsirFrame" src=""></iframe>
 </div>
 <script>
-    function search() {
-        let val = document.getElementById('inputVal').value;
-        if(val) window.open('https://www.google.com/search?q=تفسير+سورة+' + val, '_blank');
+    function showTafsir() {
+        let name = document.getElementById('surahInput').value;
+        if(name) {
+            // هذا الرابط يفتح موقع إسلام ويب الموثوق داخل موقعك
+            document.getElementById('tafsirFrame').src = 'https://www.islamweb.net/ar/search/?q=' + name + '+تفسير';
+        }
     }
 </script>
 </body>
